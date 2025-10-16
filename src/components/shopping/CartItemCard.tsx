@@ -4,7 +4,7 @@ import { Alert, Card, CardContent, CircularProgress } from "@mui/material"
 import { useShallow } from "zustand/shallow";
 
 
-const ItemCard = ({ id }: { id: number }) => {
+const CartItemCard = ({ id }: { id: number }) => {
     const { data: item, isLoading, isError } = useProduct(id);
     const quantity = useCartStore(useShallow((state) => state.items[id]))
 
@@ -23,7 +23,7 @@ const ItemCard = ({ id }: { id: number }) => {
     }
 
     if (!item) {
-        return
+        return null;
     }
 
     return (
@@ -42,4 +42,4 @@ const ItemCard = ({ id }: { id: number }) => {
     )
 }
 
-export default ItemCard
+export default CartItemCard
