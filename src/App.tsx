@@ -6,6 +6,7 @@ import './App.css'
 import ShoppingPage from '@/pages/shopping/ShoppingPage';
 import ProductDetails from '@/pages/product/ProductDetails';
 import MainLayout from './layouts/MainLayout';
+import Cart from './pages/shopping/ShoppingCart';
 
 const queryClient = new QueryClient();
 const theme = createTheme({
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/search" element={<ShoppingPage />} />
                 <Route path="*" element={<Navigate to="/search" />} />
                 <Route path="/product/:id" element={<ProductDetails />} />
+                <Route path="/cart" element={<Cart />} />
               </Route>
             </Routes>
           </BrowserRouter>

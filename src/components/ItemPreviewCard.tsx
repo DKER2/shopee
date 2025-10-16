@@ -1,7 +1,7 @@
 import type { Product } from "@/types/product";
 import { Card, CardContent } from "@mui/material";
 
-const ItemCard = ({ item }: { item: Product }) => {
+const ItemPreviewCard = ({ item }: { item: Product }) => {
     return (
         <Card>
             <CardContent>
@@ -18,4 +18,4 @@ const ItemCard = ({ item }: { item: Product }) => {
     )
 }
 
-export default ItemCard;
+export default ItemPreviewCard;
