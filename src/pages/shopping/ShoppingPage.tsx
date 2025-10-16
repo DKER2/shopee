@@ -1,4 +1,4 @@
-import ItemCard from "@/components/ItemCard";
+import ItemPreviewCard from "@/components/ItemPreviewCard";
 import ItemFilter from "@/components/shopping/ItemFilter";
 import { useProducts } from "@/hooks/useProducts";
 import { useMemo } from "react";
@@ -26,7 +26,7 @@ const ShoppingPage = () => {
                 {products && (
                     filteredProducts.map((product) => (
                         <NavLink to={`/product/${product.id}`} key={product.id}>
-                            <ItemCard item={product} />
+                            <ItemPreviewCard item={product} />
                         </NavLink>
                     ))
                 )}
