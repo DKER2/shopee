@@ -6,7 +6,7 @@ const Cart = () => {
     return (
         <div>
             {
-                Object.entries(itemsInCart).map(([itemId, _]) => (
+                Object.keys(itemsInCart).map((itemId) => (
                     <CartItemCard key={itemId} id={parseInt(itemId)} />
                 ))
             }

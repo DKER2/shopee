@@ -1,12 +1,10 @@
 import { useProduct } from "@/hooks/useProducts";
 import { useCartStore } from "@/stores/cart-store";
 import { Alert, Card, CardContent, CircularProgress } from "@mui/material"
-import { useShallow } from "zustand/shallow";
-
 
 const CartItemCard = ({ id }: { id: number }) => {
     const { data: item, isLoading, isError } = useProduct(id);
-    const quantity = useCartStore(useShallow((state) => state.items[id]))
+    const quantity = useCartStore((state) => state.items[id])
 
     if (isLoading) {
         return (
