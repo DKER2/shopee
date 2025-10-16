@@ -17,7 +17,7 @@ const CartItemCard = ({ id }: { id: number }) => {
     }
 
     if (isError) {
-        return <Alert severity="error">Could not fetch product.</Alert>;
+        return <Alert severity="error">Could not fetch produc.</Alert>;
     }
 
     if (!item) {
