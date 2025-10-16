@@ -25,7 +25,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <ToastProvider>
         <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
+          <BrowserRouter basename='/shopee'>
             <Routes>
               <Route element={<MainLayout />}>
                 <Route path="/search" element={<ShoppingPage />} />
