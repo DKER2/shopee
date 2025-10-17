@@ -9,7 +9,7 @@ interface QuantitySelectorProps {
 const QuantitySelector = ({ quantity, setQuantity }: QuantitySelectorProps) => {
     return (
         <div>
-            <Button onClick={() => setQuantity(quantity - 1)}>
+            <Button onClick={() => setQuantity(quantity - 1)} disabled={quantity <= 1}>
                 <Remove />
             </Button>
             {quantity}
