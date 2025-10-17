@@ -8,8 +8,9 @@ export const useProducts = () => {
 
 export const useProduct = (id: number) => {
     const queryClient = useQueryClient()
-    return useQuery<Product>({
+    const { data, isLoading, isError, isSuccess } = useQuery<Product>({
         queryKey: ["products", id], queryFn: () => ProductService.getProduct(id),
         initialData: () => queryClient.getQueryData<Product[]>(["products"])?.find((product) => product.id === id)
     })
+    return { data, isLoading, isError, isSuccess }
 }

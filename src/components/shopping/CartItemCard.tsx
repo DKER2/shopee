@@ -1,10 +1,12 @@
 import { useProduct } from "@/hooks/useProducts";
 import { useCartStore } from "@/stores/cart-store";
 import { Alert, Card, CardContent, CircularProgress } from "@mui/material"
+import QuantitySelector from "../QuantitySelector";
 
 const CartItemCard = ({ id }: { id: number }) => {
     const { data: item, isLoading, isError } = useProduct(id);
-    const quantity = useCartStore((state) => state.items[id])
+    const quantity = useCartStore((state) => state.items[id]);
+    const setQuantity = useCartStore((state) => state.changeQuantity)
 
     if (isLoading) {
         return (
@@ -26,15 +28,12 @@ const CartItemCard = ({ id }: { id: number }) => {
 
     return (
         <Card>
-            <CardContent>
-                <div className="flex justify-center mb-4">
-                    <img src={item.image} alt={item.title} style={{ height: 200 }} />
-                </div>
-                <div className="flex flex-col items-start">
-                    <h2 className="text-left h-12">{item.title.slice(0, 30) + '...'}</h2>
-                    <p className="price">${item.price}</p>
-                    <div>{quantity}</div>
-                </div>
+            <CardContent className="flex justify-between">
+                <img src={item.image} alt={item.title} style={{ width: 100 }} />
+                <h2 className="text-left h-12">{item.title}</h2>
+                <p className="price">${item.price}</p>
+                <QuantitySelector quantity={quantity} setQuantity={(quantity) => setQuantity(id, quantity)} />
+                <div>${(item.price * quantity).toFixed(2)}</div>
             </CardContent>
         </Card>
     )
