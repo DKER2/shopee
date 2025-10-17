@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <nav className="h-20 fixed bg-orange-500 w-full">
             <div className="container mx-auto flex justify-between items-center h-full">
-                <NavLink to="/search">Shopee</NavLink>
+                <NavLink to="/search" className="flex items-center"><img src="/logo.png" style={{ height: 50 }} />Shopee</NavLink>
                 <NavLink to="/cart"><ShoppingCartCheckout />{cartCount}</NavLink>
             </div>
         </nav>

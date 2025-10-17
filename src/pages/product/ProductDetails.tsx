@@ -1,6 +1,7 @@
+import QuantitySelector from '@/components/QuantitySelector';
 import { useProduct } from '@/hooks/useProducts';
 import { useCartStore } from '@/stores/cart-store';
-import { Add, ArrowBack, Remove } from '@mui/icons-material';
+import { ArrowBack } from '@mui/icons-material';
 import { Button, Card, CardContent } from '@mui/material';
 import { useState } from 'react';
 import { Navigate, NavLink, useParams } from 'react-router-dom';
@@ -45,9 +46,7 @@ const ProductDetails = () => {
                         <div>{product!.description}</div>
                         <div className="price">${product!.price}</div>
                         <div>
-                            <div>
-                                <Button><Remove onClick={() => handleSetQuanity(quantity - 1)} /></Button>{quantity}<Button><Add onClick={() => handleSetQuanity(quantity + 1)} /></Button>
-                            </div>
+                            <QuantitySelector quantity={quantity} setQuantity={handleSetQuanity} />
                             <Button onClick={() => addToCart(product!.id, quantity)}>
                                 Add to Cart
                             </Button>
